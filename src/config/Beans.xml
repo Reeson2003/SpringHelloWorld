@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="AntQueen" class="ru.reeson2003.monster.impl.MonsterImpl" scope="prototype">
+        <property name="name" value="Ant Queen"/>
+        <property name="parameters" ref="params"/>
+    </bean>
+
+    <bean id="params" class="ru.reeson2003.monster.impl.ParametersImpl" scope="prototype">
+        <property name="strength" ref="str"/>
+        <property name="intellect" ref="int"/>
+    </bean>
+
+    <bean id="str" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+        <property name="info" value="Strength"/>
+        <property name="value" value="100"/>
+    </bean>
+
+    <bean id="int" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+        <property name="info" value="Intellect"/>
+        <property name="value" value="70"/>
+    </bean>
+
+</beans>

@@ -3,35 +3,26 @@ package ru.reeson2003.monster.impl;
 import ru.reeson2003.monster.api.Parameter;
 import ru.reeson2003.monster.api.Parameters;
 
+import java.util.List;
+
 /**
  * Created by reeson on 28.01.17.
  */
 public class ParametersImpl implements Parameters{
-    private Parameter strength;
-    private Parameter intellect;
+    private List<Parameter> parameters;
 
     @Override
-    public Parameter getStrength() {
-        return strength;
+    public List<Parameter> getParameters() {
+        return parameters;
     }
 
     @Override
-    public Parameter getIntellect() {
-        return intellect;
-    }
-
-    @Override
-    public void setStrength(Parameter strength) {
-        this.strength = strength;
-    }
-
-    @Override
-    public void setIntellect(Parameter intellect) {
-        this.intellect = intellect;
+    public void setParameters(List<Parameter> parameters) {
+        this.parameters = parameters;
     }
 
     @Override
     public String toString() {
-        return "{" + strength.toString() + "; " + intellect.toString() + "}";
+        return parameters.toString();
     }
 }

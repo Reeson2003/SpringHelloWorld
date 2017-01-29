@@ -2,25 +2,45 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-    <bean id="AntQueen" class="ru.reeson2003.monster.impl.MonsterImpl" scope="prototype">
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+    <context:annotation-config/>
+    <bean id="AntQueen" class="ru.reeson2003.monster.impl.MonsterImpl" scope="prototype" autowire="byType">
         <property name="name" value="Ant Queen"/>
-        <property name="parameters" ref="params"/>
     </bean>
 
-    <bean id="params" class="ru.reeson2003.monster.impl.ParametersImpl" scope="prototype">
-        <property name="strength" ref="str"/>
-        <property name="intellect" ref="int"/>
+    <bean id="Parameters" class="ru.reeson2003.monster.impl.ParametersImpl" scope="prototype" autowire="byType">
+        <property name="parameters">
+            <list>
+                <bean class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+                    <property name="info" value="Strength"/>
+                    <property name="value" value="40"/>
+                </bean>
+                <bean class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+                    <property name="info" value="Constitution"/>
+                    <property name="value" value="30"/>
+                </bean>
+                <bean class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+                    <property name="info" value="Intellect"/>
+                    <property name="value" value="43"/>
+                </bean>
+                <bean class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+                    <property name="info" value="Wisdom"/>
+                    <property name="value" value="60"/>
+                </bean>
+            </list>
+        </property>
     </bean>
 
-    <bean id="str" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+    <bean id="strength" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
         <property name="info" value="Strength"/>
         <property name="value" value="100"/>
     </bean>
 
-    <bean id="int" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
+    <bean id="intellect" class="ru.reeson2003.monster.impl.ParameterImpl" scope="prototype">
         <property name="info" value="Intellect"/>
         <property name="value" value="70"/>
     </bean>

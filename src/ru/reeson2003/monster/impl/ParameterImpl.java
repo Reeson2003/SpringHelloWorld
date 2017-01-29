@@ -1,5 +1,6 @@
 package ru.reeson2003.monster.impl;
 
+import org.springframework.beans.factory.annotation.Required;
 import ru.reeson2003.monster.api.Parameter;
 
 /**
@@ -24,6 +25,7 @@ public class ParameterImpl implements Parameter {
         return value;
     }
 
+    @Required
     @Override
     public void setValue(int value) {
         this.value = value;
